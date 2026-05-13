@@ -6,21 +6,46 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check": "node --max-old-space-size=4096 $(which tsx) scripts/linting/index.ts",
+    "check:ts": "npm run check -- --ts-only",
+    "check:smells": "npm run check -- --smells-only",
+    "check:lint": "npm run check -- --lint-only",
+    "dev:webwidgets": "(cd ../dashboard && npx next dev -p 3001)",
+    "dev:ductmap": "(cd ../ductmap/web && npx next dev -p 3002)",
+    "dev:everychurch": "(cd ../everychurch/server && ./mvnw spring-boot:run -q)",
+    "dev:all": "concurrently -n portfolio,webwidgets,ductmap,everychurch -c cyan,blue,amber,green \"npm run dev\" \"npm run dev:webwidgets\" \"npm run dev:ductmap\" \"npm run dev:everychurch\""
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.6.1",
+    "@types/three": "^0.184.1",
+    "d3": "^7.9.0",
+    "framer-motion": "^12.38.0",
+    "glslify-lite": "^0.0.7",
     "next": "16.2.6",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "shiki": "^4.0.2",
+    "three": "^0.184.0",
+    "zustand": "^5.0.13"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^8.56.1",
+    "@typescript-eslint/parser": "^8.56.1",
+    "concurrently": "^9.2.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "tailwindcss": "^4",
+    "ts-morph": "^28.0.0",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
