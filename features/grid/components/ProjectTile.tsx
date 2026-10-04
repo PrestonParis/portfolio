@@ -7,7 +7,7 @@ import { WebWidgetsMini } from "@/features/grid/demos/WebWidgetsMini"
 import { EveryChurchMini } from "@/features/grid/demos/EveryChurchMini"
 import { DuctmapMini } from "@/features/grid/demos/DuctmapMini"
 import { GeographyMini } from "@/features/grid/demos/GeographyMini"
-import { ClearSpeakMini } from "@/features/grid/demos/ClearSpeakMini"
+import { WorldviewMini } from "@/features/grid/demos/WorldviewMini"
 
 function MiniDemo({ project }: { project: Project }) {
   switch (project.id) {
@@ -15,7 +15,7 @@ function MiniDemo({ project }: { project: Project }) {
     case "everychurch": return <EveryChurchMini />
     case "ductmap": return <DuctmapMini />
     case "geography": return <GeographyMini />
-    case "clearspeak": return <ClearSpeakMini />
+    case "worldview": return <WorldviewMini />
     default: return null
   }
 }

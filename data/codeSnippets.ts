@@ -295,5 +295,5 @@ pub fn validate(&self) -> String {
     },
   ],
   geography: [],
-  clearspeak: [],
+  worldview: [],
 }

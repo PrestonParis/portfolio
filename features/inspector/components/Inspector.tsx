@@ -6,6 +6,33 @@ import ModeSelector from "./ModeSelector"
 import LivePreview from "./LivePreview"
 import ArchitectureMode from "../modes/ArchitectureMode"
 import { RightPanel } from "./RightPanel"
+import type { Project } from "@/data/projects"
+
+function ProjectLinks({ project }: { project: Project }) {
+  return (
+    <>
+      <a
+        href={project.repositoryUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="hidden rounded-md border border-white/10 px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest text-white/35 transition-colors hover:border-white/20 hover:text-white/70 sm:block"
+      >
+        GitHub
+      </a>
+      {project.url && (
+        <a
+          href={project.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden rounded-md px-2.5 py-1 font-mono text-[9px] uppercase tracking-widest text-black sm:block"
+          style={{ background: project.color }}
+        >
+          Open live
+        </a>
+      )}
+    </>
+  )
+}
 
 export default function Inspector() {
   const activeProject = useStore((s) => s.activeProject)
@@ -60,6 +87,7 @@ export default function Inspector() {
               </div>
 
               <div className="flex items-center gap-3">
+                <ProjectLinks project={activeProject} />
                 <ModeSelector
                   active={activeMode}
                   project={activeProject}

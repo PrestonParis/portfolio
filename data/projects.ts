@@ -11,6 +11,7 @@ export interface Project {
   status: ProjectStatus
   overlayItems: string[]
   url?: string
+  repositoryUrl: string
 }
 
 export const PROJECTS: Project[] = [
@@ -24,7 +25,8 @@ export const PROJECTS: Project[] = [
     tech: ["Next.js", "TypeScript", "FastAPI", "Supabase", "PostgreSQL"],
     color: "#3b82f6",
     status: "live",
-    url: process.env.NEXT_PUBLIC_WEBWIDGETS_URL,
+    url: process.env.NEXT_PUBLIC_WEBWIDGETS_URL ?? "https://webwidgets.me",
+    repositoryUrl: "https://github.com/PrestonParis/aidash",
     overlayItems: [
       "Widget state mutation propagation",
       "Persistence synchronization cycles",
@@ -41,8 +43,9 @@ export const PROJECTS: Project[] = [
       "A secure full-stack ecosystem for church discovery, evaluation, and community coordination. Transforms fragmented church web experiences into a unified platform through intelligent recommendation and role-based access control.",
     tech: ["Angular", "Spring Boot", "AWS", "PostgreSQL"],
     color: "#10b981",
-    status: "in-progress",
-    url: process.env.NEXT_PUBLIC_EVERYCHURCH_URL,
+    status: "live",
+    url: process.env.NEXT_PUBLIC_EVERYCHURCH_URL ?? "https://everychurch.co",
+    repositoryUrl: "https://github.com/PrestonParis/everychurch",
     overlayItems: [
       "Authentication / authorization flow",
       "Request lifecycle tracing",
@@ -61,6 +64,7 @@ export const PROJECTS: Project[] = [
     color: "#f59e0b",
     status: "in-progress",
     url: process.env.NEXT_PUBLIC_DUCTMAP_URL,
+    repositoryUrl: "https://github.com/PrestonParis/ductmap",
     overlayItems: [
       "Graph recomputation",
       "Constraint propagation",
@@ -78,6 +82,7 @@ export const PROJECTS: Project[] = [
     tech: ["Next.js", "Three.js", "D3", "GIS APIs", "TypeScript"],
     color: "#06b6d4",
     status: "planned",
+    repositoryUrl: "https://github.com/PrestonParis/Observatory",
     overlayItems: [
       "Geographic query execution",
       "Layer compositing behavior",
@@ -86,20 +91,21 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    id: "clearspeak",
-    title: "ClearSpeak",
-    tagline: "Political Language Intelligence Platform",
-    focus: "Data Pipelines & Language Analysis",
+    id: "worldview",
+    title: "Worldview",
+    tagline: "Political Research & Visualization",
+    focus: "Graph Data & Public Information Systems",
     description:
-      "A structured analysis engine for tracking, parsing, and evaluating political statements. Focuses on making rhetoric observable through measurable consistency scoring, contradiction detection, and longitudinal communication pattern analysis.",
-    tech: ["Python", "FastAPI", "PostgreSQL", "NLP", "TypeScript"],
+      "A political research platform connecting public officials, legislation, money, elections, geography, and institutions across a relational store and a graph database.",
+    tech: ["Next.js", "TypeScript", "Neo4j", "PostgreSQL", "MapLibre"],
     color: "#a855f7",
-    status: "planned",
+    status: "in-progress",
+    repositoryUrl: "https://github.com/PrestonParis/worldview",
     overlayItems: [
-      "Data ingestion flow",
-      "Parsing and normalization execution",
-      "Analysis pass progression",
-      "Contradiction resolution logic",
+      "Idempotent public-data ingestion",
+      "Relational and graph data ownership",
+      "Entity crosswalk resolution",
+      "Map and relationship rendering",
     ],
   },
 ]

@@ -59,16 +59,16 @@ export const TRACES: Record<string, TraceEntry> = {
       { id: "5", label: "tesselate()", service: "Renderer", start: 132, duration: 22, depth: 1 },
     ],
   },
-  clearspeak: {
-    totalMs: 420,
-    caption: "Statement ingestion through to contradiction scoring: normalization, embedding, and vector search are the critical path.",
+  worldview: {
+    totalMs: 310,
+    caption: "Public-data ingestion normalizes a record, resolves its crosswalk IDs, then upserts relational data and merges graph relationships.",
     spans: [
-      { id: "1", label: "ingest(statement)", service: "Worker", start: 0, duration: 420, depth: 0 },
-      { id: "2", label: "normalize()", service: "Worker", start: 5, duration: 25, depth: 1 },
-      { id: "3", label: "db.upsert()", service: "Postgres", start: 32, duration: 30, depth: 1 },
-      { id: "4", label: "model.encode()", service: "Embedder", start: 65, duration: 180, depth: 1 },
-      { id: "5", label: "vector_db.search()", service: "Qdrant", start: 248, duration: 80, depth: 1 },
-      { id: "6", label: "detector.score()", service: "Detector", start: 330, duration: 75, depth: 1 },
+      { id: "1", label: "import(record)", service: "Worker", start: 0, duration: 310, depth: 0 },
+      { id: "2", label: "validate()", service: "Worker", start: 5, duration: 20, depth: 1 },
+      { id: "3", label: "resolveCrosswalk()", service: "Worker", start: 30, duration: 75, depth: 1 },
+      { id: "4", label: "upsertRecord()", service: "Postgres", start: 110, duration: 90, depth: 1 },
+      { id: "5", label: "mergeEntity()", service: "Neo4j", start: 205, duration: 70, depth: 1 },
+      { id: "6", label: "writeAudit()", service: "Worker", start: 280, duration: 25, depth: 1 },
     ],
   },
 }
@@ -93,4 +93,5 @@ export const SERVICE_COLORS: Record<string, string> = {
   Embedder: "#f97316",
   Qdrant: "#fbbf24",
   Detector: "#a78bfa",
+  Neo4j: "#a855f7",
 }
