@@ -86,21 +86,21 @@ export const STATE_GRAPHS: Record<string, StateGraph> = {
       { from: "tess", to: "render", label: "triangles", delay: 1.6 },
     ],
   },
-  clearspeak: {
-    caption: "New statements enter the ingestion queue, are normalized and embedded, then scored against a vector-narrowed candidate set of prior statements.",
+  worldview: {
+    caption: "A public record is normalized, matched through stable external identifiers, and upserted into the relational and graph stores without duplication.",
     nodes: [
-      { id: "raw", label: "Raw Statement", x: 190, y: 30 },
+      { id: "source", label: "Public Source", x: 190, y: 30 },
       { id: "norm", label: "Normalize", x: 190, y: 110 },
-      { id: "embed", label: "Embed", x: 80, y: 200 },
-      { id: "search", label: "Vector Search", x: 300, y: 200 },
-      { id: "score", label: "Score", x: 190, y: 290 },
+      { id: "crosswalk", label: "Resolve IDs", x: 80, y: 200 },
+      { id: "postgres", label: "PostgreSQL", x: 300, y: 200 },
+      { id: "neo4j", label: "Neo4j", x: 190, y: 290 },
     ],
     edges: [
-      { from: "raw", to: "norm", label: "ingest", delay: 0 },
-      { from: "norm", to: "embed", label: "tokenize", delay: 0.6 },
-      { from: "embed", to: "search", label: "query", delay: 1.2 },
-      { from: "search", to: "score", label: "candidates", delay: 1.8 },
-      { from: "embed", to: "score", label: "embedding", delay: 1.8 },
+      { from: "source", to: "norm", label: "ingest", delay: 0 },
+      { from: "norm", to: "crosswalk", label: "identify", delay: 0.6 },
+      { from: "crosswalk", to: "postgres", label: "upsert", delay: 1.2 },
+      { from: "crosswalk", to: "neo4j", label: "merge", delay: 1.8 },
+      { from: "postgres", to: "neo4j", label: "entity id", delay: 1.8 },
     ],
   },
 }

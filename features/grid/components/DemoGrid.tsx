@@ -1,6 +1,7 @@
 "use client"
 
 import { PROJECTS } from "@/data/projects"
+import Image from "next/image"
 import ProjectTile from "./ProjectTile"
 
 const GRID_AREAS: Record<string, string> = {
@@ -8,7 +9,7 @@ const GRID_AREAS: Record<string, string> = {
   everychurch: "ec",
   ductmap: "dm",
   geography: "ge",
-  clearspeak: "cs",
+  worldview: "wv",
 }
 
 export default function DemoGrid() {
@@ -19,7 +20,7 @@ export default function DemoGrid() {
         display: "grid",
         gridTemplateColumns: "repeat(3, 1fr)",
         gridTemplateRows: "repeat(3, 1fr)",
-        gridTemplateAreas: `"ww ww ec" "ww ww dm" "ge cs ab"`,
+        gridTemplateAreas: `"ww ww ec" "ww ww wv" "ge dm ab"`,
         gap: 8,
       }}
     >
@@ -53,9 +54,11 @@ function AboutTile() {
 
       <div>
         <div className="mb-3 flex items-center gap-3">
-          <img
+          <Image
             src="/Linkedinpfp.jpeg"
             alt="Preston Paris"
+            width={40}
+            height={40}
             className="h-10 w-10 rounded-full object-cover ring-1 ring-white/10"
           />
           <p className="font-mono text-[9px] uppercase tracking-[0.25em] text-white/25">

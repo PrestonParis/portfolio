@@ -40,14 +40,14 @@ export const RUNTIME_CONTENT: Record<string, RuntimeEntry> = {
     ],
     note: "Geography is in early development. The visualization engine is operational — data layer integrations are in progress.",
   },
-  clearspeak: {
+  worldview: {
     features: [
-      "Statement ingestion with async normalization pipeline",
-      "Vector similarity search across speaker statement history",
-      "Contradiction detection using embedding distance scoring",
-      "Longitudinal communication pattern analysis",
+      "Explore officials and institutions through a Neo4j relationship graph",
+      "Query legislation, votes, elections, and money in PostgreSQL",
+      "Re-run public-data imports without duplicating records",
+      "Resolve government representation from a U.S. address",
     ],
-    note: "ClearSpeak is in the design phase. The analysis architecture is specified and the ingestion pipeline is being built.",
+    note: "Worldview is in active development. The research interface and public-data pipelines are operational; a read-only public demo is the next deployment milestone.",
   },
 }
 

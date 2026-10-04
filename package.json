@@ -11,7 +11,7 @@
     "check:ts": "npm run check -- --ts-only",
     "check:smells": "npm run check -- --smells-only",
     "check:lint": "npm run check -- --lint-only",
-    "dev:webwidgets": "(cd ../dashboard && npx next dev -p 3001)",
+    "dev:webwidgets": "(cd ../aidash && npx next dev -p 3001)",
     "dev:ductmap": "(cd ../ductmap/web && npx next dev -p 3002)",
     "dev:everychurch": "(cd ../everychurch/server && ./mvnw spring-boot:run -q)",
     "dev:all": "concurrently -n portfolio,webwidgets,ductmap,everychurch -c cyan,blue,amber,green \"npm run dev\" \"npm run dev:webwidgets\" \"npm run dev:ductmap\" \"npm run dev:everychurch\""
